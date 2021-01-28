@@ -1,4 +1,3 @@
-import EventEmitter from 'eventemitter3';
 import Monster from './Monster';
 
 export default class Animation {
@@ -12,13 +11,7 @@ export default class Animation {
     );
   }
 
-  mouseLeaveHandler(el) {
-    el.element.id = 'contract';
-    this.monsters.map((x) => x.contract());
-  }
-
-  containerHandler() {
-    this.monsters.map((x) => (x.element.id = 'reset'));
+  mouseLeaveHandler() {
     this.monsters.map((x) => x.reset());
   }
 
@@ -38,23 +31,5 @@ export default class Animation {
     this.monsters.map((x) =>
       x.element.addEventListener('mouseleave', () => this.mouseLeaveHandler(x))
     );
-    const container = document.querySelector('#container');
-
-    container.addEventListener('mouseleave', (element) =>
-      this.containerHandler(element)
-    );
-
-    //     this.mouseEnterHandler(el)
-    //   );));
-    // monster.element.id = 'reset';
-    //   monster.element.addEventListener('mouseenter', (el) =>
-    //     this.mouseEnterHandler(el)
-    //   );
-    //   monster.element.addEventListener('mouseleave', (el) =>
-    //     monster.contract(el)
-    //   );
-    //   monster.element.parentElement.addEventListener('mouseleave', (el) =>
-    //     monster.reset(el)
-    //   );
   }
 }

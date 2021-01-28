@@ -11,9 +11,11 @@ export default class Monster {
     });
   }
   contract() {
+    this.element.id = 'contract';
     gsap.to(this.element, { width: '4%', duration: 0.5 });
   }
   reset() {
-    gsap.to('.monster', { width: '16.6%', duration: 0.5 });
+    this.element.id = 'reset';
+    gsap.to(this.element, { width: '16.6%', duration: 0.5 });
   }
 }
